@@ -3,52 +3,10 @@
   <channel>
     <title>Techmeme Top News</title>
     <link>https://www.techmeme.com/</link>
-    <description>The top news from Techmeme.com, updated automatically.</description>
+    <description>Techmeme.com Top News 自动更新</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Jun 2025 14:29:46 +0000</lastBuildDate>
-    <item>
-      <title>How Huawei has remained resilient in the face of US sanctions; Mizuho: about 700,000 units of Huawei's Ascend 910 series are expected to ship in 2025</title>
-      <link>https://www.scmp.com/tech/big-tech/article/3315239/how-huaweis-silicon-strategy-defies-us-sanctions-advance-chinas-ai-ambitions</link>
-      <description>Huawei is expected to ship about 700,000 Ascend AI processors in 2025, according to Mizuho estimates  —  By Ann Caoin Shanghai and Wency Chenin Shanghai</description>
-      <guid isPermaLink="false">https://www.scmp.com/tech/big-tech/article/3315239/how-huaweis-silicon-strategy-defies-us-sanctions-advance-chinas-ai-ambitions</guid>
-    </item>
-    <item>
-      <title>Huawei unveils a beta version of HarmonyOS 6, making it available to developers, and announces the HarmonyOS Agent Framework to help developers create AI agents</title>
-      <link>https://www.scmp.com/tech/big-tech/article/3315287/huawei-opens-harmonyos-6-developers-unveils-ai-agents-and-cloud-architecture-updates</link>
-      <description>The tech giant did not give a public launch date for the latest version of the operating system, but said it will be more intelligent and open</description>
-      <guid isPermaLink="false">https://www.scmp.com/tech/big-tech/article/3315287/huawei-opens-harmonyos-6-developers-unveils-ai-agents-and-cloud-architecture-updates</guid>
-    </item>
-    <item>
-      <title>A look at “Generative Engine Optimization” startups like Profound and Bluefish AI, which help businesses improve content to appear in AI search summaries</title>
-      <link>https://www.forbes.com/sites/rashishrivastava/2025/06/19/these-startups-are-helping-businesses-show-up-in-ai-search-summaries/</link>
-      <description>Businesses are scrambling to be cited in AI-generated answers on Google, Perplexity and ChatGPT.</description>
-      <guid isPermaLink="false">https://www.forbes.com/sites/rashishrivastava/2025/06/19/these-startups-are-helping-businesses-show-up-in-ai-search-summaries/</guid>
-    </item>
-    <item>
-      <title>Kantar: the share of Indians consuming media exclusively on mobile phones grew to 23% in Q1 2025, up from 15% in Q1 2023, as TVs stay unaffordable for many</title>
-      <link>https://www.bloomberg.com/news/articles/2025-06-20/one-in-four-indians-uses-only-a-mobile-for-netflix-social-media-and-skips-tv</link>
-      <description>The number of users who only use digital channels ballooned to 23% in the March quarter of 2025, according to market research firm …</description>
-      <guid isPermaLink="false">https://www.bloomberg.com/news/articles/2025-06-20/one-in-four-indians-uses-only-a-mobile-for-netflix-social-media-and-skips-tv</guid>
-    </item>
-    <item>
-      <title>Anthropic's test of 16 top AI models from OpenAI and others found that, in some cases, they resorted to malicious behavior to avoid replacement or achieve goals</title>
-      <link>https://www.axios.com/2025/06/20/ai-models-deceive-steal-blackmail-anthropic</link>
-      <description>Large language models across the AI industry are increasingly willing to evade safeguards, resort to deception and even attempt …</description>
-      <guid isPermaLink="false">https://www.axios.com/2025/06/20/ai-models-deceive-steal-blackmail-anthropic</guid>
-    </item>
-    <item>
-      <title>Sources: Mira Murati's Thinking Machines Lab raised $2B led by a16z at a $10B valuation; Murati will hold board voting rights that outweigh all other directors</title>
-      <link>https://t.co/cx6lkxYcNl</link>
-      <description>Six-month-old secretive AI start-up in one of the largest initial funding rounds in Silicon Valley's history</description>
-      <guid isPermaLink="false">https://t.co/cx6lkxYcNl</guid>
-    </item>
-    <item>
-      <title>A profile of Scale AI co-founder Alexandr Wang, whose ties to influential people in the AI industry and the GOP could give Meta leverage over its competitors</title>
-      <link>https://www.bloomberg.com/news/articles/2025-06-16/scale-ai-s-alexandr-wang-brings-meta-his-extensive-competitor-knowledge?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc1MDA5NTg0MiwiZXhwIjoxNzUwNzAwNjQyLCJhcnRpY2xlSWQiOiJTWFlMOTJEV1JHRzAwMCIsImJjb25uZWN0SWQiOiJBOERERjM1REFBRTY0QjM0QTdDMzZGOTVCQTBGRUZGNSJ9.vPNLT-DhyUvy0KIagME5K2jvUXpuwLwEodJ9wTK7Zds&amp;sref=DnIEDkSw</link>
-      <description>Sources: Mark Zuckerberg recently discussed buying Mira Murati's Thinking Machines Lab, but the talks didn't progress to the formal offer stage —  ﻿Mark Zuckerberg has been playing the field as he looks to reboot his AI strategy. … At this point, it's becoming easier …</description>
-      <guid isPermaLink="false">https://www.bloomberg.com/news/articles/2025-06-16/scale-ai-s-alexandr-wang-brings-meta-his-extensive-competitor-knowledge?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc1MDA5NTg0MiwiZXhwIjoxNzUwNzAwNjQyLCJhcnRpY2xlSWQiOiJTWFlMOTJEV1JHRzAwMCIsImJjb25uZWN0SWQiOiJBOERERjM1REFBRTY0QjM0QTdDMzZGOTVCQTBGRUZGNSJ9.vPNLT-DhyUvy0KIagME5K2jvUXpuwLwEodJ9wTK7Zds&amp;sref=DnIEDkSw</guid>
-    </item>
+    <lastBuildDate>Sat, 21 Jun 2025 14:48:24 +0000</lastBuildDate>
   </channel>
 </rss>
