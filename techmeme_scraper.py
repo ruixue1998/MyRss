@@ -81,4 +81,24 @@ def generate_verge_popular_atom():
             if isinstance(author_tag, Tag) and author_tag.has_attr("content"):
                 author = author_tag["content"]
             # 发布时间
-            pub_tag = detail_soup.find("meta", attrs={"
+            pub_tag = detail_soup.find("meta", attrs={"property": "article:published_time"})
+            if isinstance(pub_tag, Tag) and pub_tag.has_attr("content"):
+                published = pub_tag["content"]
+        except Exception as e:
+            pass
+
+        fe = fg.add_entry()
+        fe.id(link)
+        fe.title(title)
+        fe.link(href=link, rel="alternate")
+        fe.author({"name": author})
+        fe.published(published)
+        fe.updated(published)
+        fe.summary(desc, type="html")
+        fe.content(desc, type="html")
+
+    fg.atom_file("rss.xml", pretty=True)
+    print("已生成rss.xml（Atom格式）")
+
+if __name__ == "__main__":
+    generate_verge_popular_atom()
