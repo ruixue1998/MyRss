@@ -1,37 +1,71 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
-  <channel>
-    <title>The Verge Most Popular</title>
-    <link>https://www.theverge.com/</link>
-    <description>The Verge 首页 Most Popular 前5新闻</description>
-    <docs>http://www.rssboard.org/rss-specification</docs>
-    <generator>python-feedgen</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 21 Jun 2025 15:09:34 +0000</lastBuildDate>
-    <item>
-      <title>Apple’s tiny M4 Mac Mini has dropped to its lowest price yet</title>
-      <link>https://www.theverge.com/tech/690172/apple-mac-mini-m4-powerbeats-pro-earbuds-deal-sale</link>
-      <guid isPermaLink="false">https://www.theverge.com/tech/690172/apple-mac-mini-m4-powerbeats-pro-earbuds-deal-sale</guid>
-    </item>
-    <item>
-      <title>Adobe launches a new ‘computational photography’ camera app for iPhones</title>
-      <link>https://www.theverge.com/news/690115/adobe-project-indigo-camera-app-marc-levoy</link>
-      <guid isPermaLink="false">https://www.theverge.com/news/690115/adobe-project-indigo-camera-app-marc-levoy</guid>
-    </item>
-    <item>
-      <title>Microsoft is blocking Google Chrome through its family safety feature</title>
-      <link>https://www.theverge.com/news/690179/microsoft-block-google-chrome-family-safety-feature</link>
-      <guid isPermaLink="false">https://www.theverge.com/news/690179/microsoft-block-google-chrome-family-safety-feature</guid>
-    </item>
-    <item>
-      <title>You sound like ChatGPT</title>
-      <link>https://www.theverge.com/openai/686748/chatgpt-linguistic-impact-common-word-usage</link>
-      <guid isPermaLink="false">https://www.theverge.com/openai/686748/chatgpt-linguistic-impact-common-word-usage</guid>
-    </item>
-    <item>
-      <title>Meta announces Oakley smart glasses</title>
-      <link>https://www.theverge.com/news/690133/meta-oakley-hstn-ai-glasses-price-date</link>
-      <guid isPermaLink="false">https://www.theverge.com/news/690133/meta-oakley-hstn-ai-glasses-price-date</guid>
-    </item>
-  </channel>
-</rss>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <id>https://www.theverge.com/rss/index.xml</id>
+  <title>The Verge Most Popular</title>
+  <updated>2025-06-21T15:19:57.862793+00:00</updated>
+  <link href="https://www.theverge.com" rel="alternate"/>
+  <link href="https://www.theverge.com/rss/index.xml" rel="self"/>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator>
+  <icon>https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&amp;h=150&amp;crop=1</icon>
+  <subtitle>The Verge 首页 Most Popular 前5新闻</subtitle>
+  <entry>
+    <id>https://www.theverge.com/tech/690172/apple-mac-mini-m4-powerbeats-pro-earbuds-deal-sale</id>
+    <title>Apple’s tiny M4 Mac Mini has dropped to its lowest price yet</title>
+    <updated>2025-06-20T17:32:21+00:00</updated>
+    <author>
+      <name>Brandt Ranj</name>
+    </author>
+    <content type="html">Apple’s latest Mac Mini desktop is on sale for up to $150 off right now. The Beats Powerbeats Pro 2 and Marshall’s Emberton III speaker are also discounted.</content>
+    <link href="https://www.theverge.com/tech/690172/apple-mac-mini-m4-powerbeats-pro-earbuds-deal-sale"/>
+    <summary type="html">Apple’s latest Mac Mini desktop is on sale for up to $150 off right now. The Beats Powerbeats Pro 2 and Marshall’s Emberton III speaker are also discounted.</summary>
+    <published>2025-06-20T17:32:21+00:00</published>
+  </entry>
+  <entry>
+    <id>https://www.theverge.com/news/690115/adobe-project-indigo-camera-app-marc-levoy</id>
+    <title>Adobe launches a new ‘computational photography’ camera app for iPhones</title>
+    <updated>2025-06-19T19:45:05+00:00</updated>
+    <author>
+      <name>Jay Peters</name>
+    </author>
+    <content type="html">Adobe Labs has launched Project Indigo, a new computational photography camera app for iPhones. Former Google engineer Marc Levoy helped make it.</content>
+    <link href="https://www.theverge.com/news/690115/adobe-project-indigo-camera-app-marc-levoy"/>
+    <summary type="html">Adobe Labs has launched Project Indigo, a new computational photography camera app for iPhones. Former Google engineer Marc Levoy helped make it.</summary>
+    <published>2025-06-19T19:45:05+00:00</published>
+  </entry>
+  <entry>
+    <id>https://www.theverge.com/news/690179/microsoft-block-google-chrome-family-safety-feature</id>
+    <title>Microsoft is blocking Google Chrome through its family safety feature</title>
+    <updated>2025-06-20T14:00:04+00:00</updated>
+    <author>
+      <name>Tom Warren</name>
+    </author>
+    <content type="html">Microsoft’s parental controls have started blocking Google’s Chrome browser. The issue started in early June, and stops Chrome from opening properly.</content>
+    <link href="https://www.theverge.com/news/690179/microsoft-block-google-chrome-family-safety-feature"/>
+    <summary type="html">Microsoft’s parental controls have started blocking Google’s Chrome browser. The issue started in early June, and stops Chrome from opening properly.</summary>
+    <published>2025-06-20T14:00:04+00:00</published>
+  </entry>
+  <entry>
+    <id>https://www.theverge.com/openai/686748/chatgpt-linguistic-impact-common-word-usage</id>
+    <title>You sound like ChatGPT</title>
+    <updated>2025-06-20T13:00:00+00:00</updated>
+    <author>
+      <name>Sara Parker</name>
+    </author>
+    <content type="html">AI isn’t just impacting how we write — it’s changing how we speak and interact with others. And there’s only more to come.</content>
+    <link href="https://www.theverge.com/openai/686748/chatgpt-linguistic-impact-common-word-usage"/>
+    <summary type="html">AI isn’t just impacting how we write — it’s changing how we speak and interact with others. And there’s only more to come.</summary>
+    <published>2025-06-20T13:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://www.theverge.com/news/690133/meta-oakley-hstn-ai-glasses-price-date</id>
+    <title>Meta announces Oakley smart glasses</title>
+    <updated>2025-06-20T06:24:43+00:00</updated>
+    <author>
+      <name>Alex Heath</name>
+    </author>
+    <content type="html">Meta is releasing a new line of AI glasses with Oakley, starting with a $499 limited-edition gold accent frame that shoots 3K video.</content>
+    <link href="https://www.theverge.com/news/690133/meta-oakley-hstn-ai-glasses-price-date"/>
+    <summary type="html">Meta is releasing a new line of AI glasses with Oakley, starting with a $499 limited-edition gold accent frame that shoots 3K video.</summary>
+    <published>2025-06-20T06:24:43+00:00</published>
+  </entry>
+</feed>
