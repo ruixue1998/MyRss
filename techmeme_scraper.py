@@ -118,7 +118,7 @@ def generate_verge_popular_atom():
 
         fe = fg.add_entry()
         fe.id(entry_id)
-        fe.title(title, type="html")
+        fe.title(title)  # 只传文本，不加type
         fe.link(href=link, rel="alternate", type="text/html")
         fe.author({"name": author})
         fe.published(published)
