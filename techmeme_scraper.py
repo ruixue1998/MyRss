@@ -16,6 +16,7 @@ def generate_rss():
 
         soup = BeautifulSoup(response.text, 'html.parser')
 
+        # Initialize the feed generator, but we don't expect it to have items yet.
         fg = FeedGenerator()
         fg.title('Techmeme Top News')
         fg.link(href=url, rel='alternate')
@@ -26,48 +27,36 @@ def generate_rss():
 
         if not top_news_container:
             print("CRITICAL ERROR: Could not find the top news container with id='topcol1'.")
-            fg.rss_file('rss.xml', pretty=True) # Write empty file to prevent Action failure
-            return
+            # If the container isn't found, print the start of the whole page for debugging.
+            print("\n\n--- DEBUG: PRINTING ENTIRE PAGE HTML (up to 5000 chars) ---")
+            print(response.text[:5000])
+            print("--- END OF HTML DEBUGGING ---\n\n")
+        else:
+            print("Successfully found news container with id='topcol1'.")
+            # THIS IS THE MOST IMPORTANT STEP: Print the exact HTML we are working with.
+            print("\n\n--- DEBUG: PRINTING HTML OF 'topcol1' CONTAINER ---")
+            print(top_news_container.prettify())
+            print("--- END OF HTML DEBUGGING ---\n\n")
 
-        print("Successfully found news container with id='topcol1'.")
-        
-        # New Strategy: Find all title blocks directly, as they are the most reliable markers.
-        title_blocks = top_news_container.find_all('div', class_='itit')
-        print(f"Found {len(title_blocks)} title blocks (class='itit') using the new strategy.")
-
-        if not title_blocks:
-            print("CRITICAL ERROR: No title blocks were found. The site structure has likely changed significantly.")
+        # We will still run the old logic to see what it outputs, but the main goal is the HTML print above.
+        title_blocks = top_news_container.find_all('div', class_='itit') if top_news_container else []
+        print(f"Attempting to find items... Found {len(title_blocks)} potential items.")
 
         item_count = 0
         for title_block in title_blocks:
-            # The title is in the <strong> tag inside the title block
             title_tag = title_block.find('strong')
-            # The link is inside an <a> tag within the <strong> tag
             link_tag = title_tag.find('a') if title_tag else None
-            
-            # The summary/description is usually the next sibling div of the title_block
             summary_block = title_block.find_next_sibling('div')
 
             if link_tag and link_tag.has_attr('href') and summary_block:
-                link = link_tag['href']
-                title = title_tag.get_text(strip=True)
-                summary = summary_block.get_text(strip=True)
-
-                # Add entry to the feed
-                fe = fg.add_entry()
-                fe.title(title)
-                fe.link(href=link)
-                fe.description(summary)
-                fe.id(link)
                 item_count += 1
+        
+        print(f"Logic test complete. Found {item_count} valid items based on current logic.")
 
-        print(f"Successfully processed and added {item_count} items to the feed.")
-
+        # Always write an empty file for now. The goal is the log, not the rss.xml.
         fg.rss_file('rss.xml', pretty=True)
-        print("RSS feed 'rss.xml' generated successfully.")
+        print("Diagnostic run complete. Please check the logs.")
 
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching the URL: {e}")
     except Exception as e:
         print(f"An error occurred: {e}")
 
