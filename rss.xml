@@ -1,12 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
-    <title>Techmeme Top News</title>
-    <link>https://www.techmeme.com/</link>
-    <description>Techmeme.com Top News 自动更新</description>
+    <title>The Verge Most Popular</title>
+    <link>https://www.theverge.com/</link>
+    <description>The Verge 首页 Most Popular 前5新闻</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Jun 2025 14:48:24 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Jun 2025 15:09:34 +0000</lastBuildDate>
+    <item>
+      <title>Apple’s tiny M4 Mac Mini has dropped to its lowest price yet</title>
+      <link>https://www.theverge.com/tech/690172/apple-mac-mini-m4-powerbeats-pro-earbuds-deal-sale</link>
+      <guid isPermaLink="false">https://www.theverge.com/tech/690172/apple-mac-mini-m4-powerbeats-pro-earbuds-deal-sale</guid>
+    </item>
+    <item>
+      <title>Adobe launches a new ‘computational photography’ camera app for iPhones</title>
+      <link>https://www.theverge.com/news/690115/adobe-project-indigo-camera-app-marc-levoy</link>
+      <guid isPermaLink="false">https://www.theverge.com/news/690115/adobe-project-indigo-camera-app-marc-levoy</guid>
+    </item>
+    <item>
+      <title>Microsoft is blocking Google Chrome through its family safety feature</title>
+      <link>https://www.theverge.com/news/690179/microsoft-block-google-chrome-family-safety-feature</link>
+      <guid isPermaLink="false">https://www.theverge.com/news/690179/microsoft-block-google-chrome-family-safety-feature</guid>
+    </item>
+    <item>
+      <title>You sound like ChatGPT</title>
+      <link>https://www.theverge.com/openai/686748/chatgpt-linguistic-impact-common-word-usage</link>
+      <guid isPermaLink="false">https://www.theverge.com/openai/686748/chatgpt-linguistic-impact-common-word-usage</guid>
+    </item>
+    <item>
+      <title>Meta announces Oakley smart glasses</title>
+      <link>https://www.theverge.com/news/690133/meta-oakley-hstn-ai-glasses-price-date</link>
+      <guid isPermaLink="false">https://www.theverge.com/news/690133/meta-oakley-hstn-ai-glasses-price-date</guid>
+    </item>
   </channel>
 </rss>
