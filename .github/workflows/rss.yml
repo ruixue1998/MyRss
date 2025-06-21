@@ -1,33 +1,33 @@
-# .github/workflows/rss.yml
-name: Generate RSS Feed
+name: Generate RSS
 
 on:
   schedule:
-    # Runs every hour
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 2 * * *' # 每天UTC时间2点运行一次（可根据需要调整）
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repo
+      - name: 检出代码
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: 设置Python环境
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
+      - name: 安装依赖
         run: pip install -r requirements.txt
 
-      - name: Run scraper
+      - name: 运行爬虫脚本生成RSS
         run: python techmeme_scraper.py
 
-      - name: Commit and push if changed
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: 'Update rss.xml'
-          file_pattern: rss.xml
+      - name: 提交并推送RSS
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add rss.xml
+          git commit -m "自动更新RSS $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git push
