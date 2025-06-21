@@ -11,6 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    # This is the new permission block to allow writing to the repository
+    permissions:
+      contents: write
+
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
