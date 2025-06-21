@@ -87,4 +87,64 @@ def generate_verge_popular_atom():
             a = item
         else:
             continue
-        if not (
+        if not (isinstance(a, Tag) and a.has_attr("href")):
+            continue
+        link = a["href"]
+        if isinstance(link, list):
+            link = link[0] if link else ""
+        if not isinstance(link, str):
+            continue
+        if link.startswith("/"):
+            link = "https://www.theverge.com" + link
+        title = a.get_text(strip=True)
+        desc = ""
+        content_html = ""
+        author = "The Verge"
+        published = updated = datetime.now(timezone.utc).isoformat()
+        entry_id = link
+        categories = []
+
+        # 进入新闻详情页抓取更多字段
+        try:
+            detail = requests.get(link, headers=headers, timeout=10)
+            detail.raise_for_status()
+            detail_soup = BeautifulSoup(detail.text, "html.parser")
+            # 摘要
+            desc_tag = detail_soup.find("meta", attrs={"name": "description"})
+            if isinstance(desc_tag, Tag) and desc_tag.has_attr("content"):
+                desc = desc_tag["content"]
+            # 作者
+            author_tag = detail_soup.find("meta", attrs={"name": "author"})
+            if isinstance(author_tag, Tag) and author_tag.has_attr("content"):
+                author = author_tag["content"]
+            # 发布时间
+            pub_tag = detail_soup.find("meta", attrs={"property": "article:published_time"})
+            if isinstance(pub_tag, Tag) and pub_tag.has_attr("content"):
+                published = updated = pub_tag["content"]
+            # id
+            entry_id = get_entry_id(detail_soup, link)
+            # 分类
+            categories = get_categories(detail_soup)
+            # 正文内容（含图片）
+            content_html = get_content_html(detail_soup)
+        except Exception as e:
+            content_html = desc
+
+        fe = fg.add_entry()
+        fe.id(entry_id)
+        fe.title(title, type="html")
+        fe.link(href=link, rel="alternate", type="text/html")
+        fe.author({"name": author})
+        fe.published(published)
+        fe.updated(updated)
+        fe.summary(desc, type="html")
+        fe.content(content_html, type="html")
+        # 添加分类
+        for cat in categories:
+            fe.category(term=cat, scheme="https://www.theverge.com")
+
+    fg.atom_file("rss.xml", pretty=True)
+    print("已生成rss.xml（Atom格式）")
+
+if __name__ == "__main__":
+    generate_verge_popular_atom()
