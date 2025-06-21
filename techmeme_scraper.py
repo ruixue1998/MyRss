@@ -1,7 +1,7 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 from feedgen.feed import FeedGenerator
-from datetime import datetime
+from datetime import datetime, timezone
 
 def generate_verge_popular_atom():
     url = "https://www.theverge.com/"
@@ -20,10 +20,10 @@ def generate_verge_popular_atom():
     fg.link(href="https://www.theverge.com/rss/index.xml", rel="self")
     fg.language("en")
     fg.icon("https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&h=150&crop=1")
-    fg.updated(datetime.utcnow())
+    fg.updated(datetime.now(timezone.utc))
 
     # 定位Most Popular区域
-    most_popular = soup.find("h2", string=lambda s: s and "Most Popular" in s)
+    most_popular = soup.find("h2", string=lambda s: 'Most Popular' in s if isinstance(s, str) else False)
     if not most_popular:
         print("未找到Most Popular区域")
         return
@@ -31,12 +31,13 @@ def generate_verge_popular_atom():
     # 获取5条新闻
     news_items = []
     for sib in most_popular.find_next_siblings():
-        if sib.name in ["ol", "ul"]:
-            news_items = sib.find_all("li", limit=5)
-            break
-        elif sib.name == "div":
-            news_items = sib.find_all("a", limit=5)
-            break
+        if isinstance(sib, Tag):
+            if sib.name in ["ol", "ul"]:
+                news_items = sib.find_all("li", limit=5)
+                break
+            elif sib.name == "div":
+                news_items = sib.find_all("a", limit=5)
+                break
 
     if not news_items:
         print("未找到Most Popular新闻条目")
@@ -44,13 +45,20 @@ def generate_verge_popular_atom():
 
     for item in news_items:
         # 兼容li结构和a结构
-        if item.name == "li":
+        if isinstance(item, Tag) and item.name == "li":
             a = item.find("a")
-        else:
+        elif isinstance(item, Tag):
             a = item
-        if not a or not a.has_attr("href"):
+        else:
+            continue
+        if not (isinstance(a, Tag) and a.has_attr("href")):
             continue
         link = a["href"]
+        # 处理link为列表的情况
+        if isinstance(link, list):
+            link = link[0] if link else ""
+        if not isinstance(link, str):
+            continue
         if link.startswith("/"):
             link = "https://www.theverge.com" + link
         title = a.get_text(strip=True)
@@ -58,7 +66,7 @@ def generate_verge_popular_atom():
         desc = ""
         # 尝试获取作者和时间
         author = "The Verge"
-        published = datetime.utcnow().isoformat() + "Z"
+        published = datetime.now(timezone.utc).isoformat()
         # 进入新闻详情页抓取摘要、作者、发布时间
         try:
             detail = requests.get(link, headers=headers, timeout=10)
@@ -66,31 +74,11 @@ def generate_verge_popular_atom():
             detail_soup = BeautifulSoup(detail.text, "html.parser")
             # 摘要
             desc_tag = detail_soup.find("meta", attrs={"name": "description"})
-            if desc_tag and desc_tag.has_attr("content"):
+            if isinstance(desc_tag, Tag) and desc_tag.has_attr("content"):
                 desc = desc_tag["content"]
             # 作者
             author_tag = detail_soup.find("meta", attrs={"name": "author"})
-            if author_tag and author_tag.has_attr("content"):
+            if isinstance(author_tag, Tag) and author_tag.has_attr("content"):
                 author = author_tag["content"]
             # 发布时间
-            pub_tag = detail_soup.find("meta", attrs={"property": "article:published_time"})
-            if pub_tag and pub_tag.has_attr("content"):
-                published = pub_tag["content"]
-        except Exception as e:
-            pass
-
-        fe = fg.add_entry()
-        fe.id(link)
-        fe.title(title)
-        fe.link(href=link, rel="alternate")
-        fe.author({"name": author})
-        fe.published(published)
-        fe.updated(published)
-        fe.summary(desc, type="html")
-        fe.content(desc, type="html")
-
-    fg.atom_file("rss.xml", pretty=True)
-    print("已生成rss.xml（Atom格式）")
-
-if __name__ == "__main__":
-    generate_verge_popular_atom()
+            pub_tag = detail_soup.find("meta", attrs={"
