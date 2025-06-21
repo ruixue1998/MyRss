@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 from feedgen.feed import FeedGenerator
-import re
 
 def generate_rss():
     try:
@@ -16,7 +15,6 @@ def generate_rss():
         print("Successfully fetched the page.")
 
         soup = BeautifulSoup(response.text, 'html.parser')
-        print(f"Page Title: {soup.title.string}")
 
         fg = FeedGenerator()
         fg.title('Techmeme Top News')
@@ -27,46 +25,43 @@ def generate_rss():
         top_news_container = soup.find(id='topcol1')
 
         if not top_news_container:
-            print("DEBUG: CRITICAL ERROR - Could not find the top news container with id='topcol1'. Website layout has likely changed.")
-            # Even if we fail, write an empty file so the Action doesn't fail on the commit step
-            fg.rss_file('rss.xml', pretty=True)
+            print("CRITICAL ERROR: Could not find the top news container with id='topcol1'.")
+            fg.rss_file('rss.xml', pretty=True) # Write empty file to prevent Action failure
             return
 
-        print("DEBUG: Successfully found news container with id='topcol1'.")
+        print("Successfully found news container with id='topcol1'.")
         
-        story_blocks = top_news_container.find_all('div', recursive=False)
-        print(f"DEBUG: Found {len(story_blocks)} potential story blocks directly inside the container.")
+        # New Strategy: Find all title blocks directly, as they are the most reliable markers.
+        title_blocks = top_news_container.find_all('div', class_='itit')
+        print(f"Found {len(title_blocks)} title blocks (class='itit') using the new strategy.")
 
-        if not story_blocks:
-            print("DEBUG: WARNING - The container was found, but no direct 'div' children were found. The structure inside the container might have changed.")
+        if not title_blocks:
+            print("CRITICAL ERROR: No title blocks were found. The site structure has likely changed significantly.")
 
         item_count = 0
-        for i, item in enumerate(story_blocks):
-            title_block = item.find('div', class_='itit')
-            if not title_block:
-                # This helps to see which blocks are not story blocks
-                # print(f"DEBUG: Block {i} has no title_block (class='itit'), skipping.")
-                continue
-            
-            link_tag = title_block.find('a')
+        for title_block in title_blocks:
+            # The title is in the <strong> tag inside the title block
             title_tag = title_block.find('strong')
+            # The link is inside an <a> tag within the <strong> tag
+            link_tag = title_tag.find('a') if title_tag else None
+            
+            # The summary/description is usually the next sibling div of the title_block
             summary_block = title_block.find_next_sibling('div')
 
-            if link_tag and title_tag and summary_block:
+            if link_tag and link_tag.has_attr('href') and summary_block:
                 link = link_tag['href']
                 title = title_tag.get_text(strip=True)
                 summary = summary_block.get_text(strip=True)
 
+                # Add entry to the feed
                 fe = fg.add_entry()
                 fe.title(title)
                 fe.link(href=link)
                 fe.description(summary)
                 fe.id(link)
                 item_count += 1
-            else:
-                print(f"DEBUG: Block {i} was identified as a story but was missing elements (link, title, or summary).")
 
-        print(f"DEBUG: Successfully processed and added {item_count} items to the feed.")
+        print(f"Successfully processed and added {item_count} items to the feed.")
 
         fg.rss_file('rss.xml', pretty=True)
         print("RSS feed 'rss.xml' generated successfully.")
