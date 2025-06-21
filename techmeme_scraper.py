@@ -3,6 +3,42 @@ from bs4 import BeautifulSoup, Tag
 from feedgen.feed import FeedGenerator
 from datetime import datetime, timezone
 
+def get_entry_id(detail_soup, link):
+    # 优先用 canonical，其次 og:url，最后 fallback 用原始链接
+    id_tag = detail_soup.find("link", rel="canonical")
+    if id_tag and id_tag.has_attr("href"):
+        return id_tag["href"]
+    og_url = detail_soup.find("meta", attrs={"property": "og:url"})
+    if og_url and og_url.has_attr("content"):
+        return og_url["content"]
+    return link
+
+def get_categories(detail_soup):
+    categories = []
+    section_tag = detail_soup.find("meta", attrs={"property": "article:section"})
+    if section_tag and section_tag.has_attr("content"):
+        categories.append(section_tag["content"])
+    tag_tags = detail_soup.find_all("meta", attrs={"property": "article:tag"})
+    for tag in tag_tags:
+        if tag.has_attr("content"):
+            categories.append(tag["content"])
+    return categories
+
+def get_content_html(detail_soup):
+    # 优先取正文article，保留图片
+    article = detail_soup.find("article")
+    if article:
+        # 保证图片src为绝对路径
+        for img in article.find_all("img"):
+            if img.has_attr("src") and img["src"].startswith("/"):
+                img["src"] = "https://www.theverge.com" + img["src"]
+        return str(article)
+    # 兜底：用 og:description
+    og_desc = detail_soup.find("meta", attrs={"property": "og:description"})
+    if og_desc and og_desc.has_attr("content"):
+        return og_desc["content"]
+    return ""
+
 def generate_verge_popular_atom():
     url = "https://www.theverge.com/"
     headers = {
@@ -51,54 +87,4 @@ def generate_verge_popular_atom():
             a = item
         else:
             continue
-        if not (isinstance(a, Tag) and a.has_attr("href")):
-            continue
-        link = a["href"]
-        # 处理link为列表的情况
-        if isinstance(link, list):
-            link = link[0] if link else ""
-        if not isinstance(link, str):
-            continue
-        if link.startswith("/"):
-            link = "https://www.theverge.com" + link
-        title = a.get_text(strip=True)
-        # 尝试获取摘要
-        desc = ""
-        # 尝试获取作者和时间
-        author = "The Verge"
-        published = datetime.now(timezone.utc).isoformat()
-        # 进入新闻详情页抓取摘要、作者、发布时间
-        try:
-            detail = requests.get(link, headers=headers, timeout=10)
-            detail.raise_for_status()
-            detail_soup = BeautifulSoup(detail.text, "html.parser")
-            # 摘要
-            desc_tag = detail_soup.find("meta", attrs={"name": "description"})
-            if isinstance(desc_tag, Tag) and desc_tag.has_attr("content"):
-                desc = desc_tag["content"]
-            # 作者
-            author_tag = detail_soup.find("meta", attrs={"name": "author"})
-            if isinstance(author_tag, Tag) and author_tag.has_attr("content"):
-                author = author_tag["content"]
-            # 发布时间
-            pub_tag = detail_soup.find("meta", attrs={"property": "article:published_time"})
-            if isinstance(pub_tag, Tag) and pub_tag.has_attr("content"):
-                published = pub_tag["content"]
-        except Exception as e:
-            pass
-
-        fe = fg.add_entry()
-        fe.id(link)
-        fe.title(title)
-        fe.link(href=link, rel="alternate")
-        fe.author({"name": author})
-        fe.published(published)
-        fe.updated(published)
-        fe.summary(desc, type="html")
-        fe.content(desc, type="html")
-
-    fg.atom_file("rss.xml", pretty=True)
-    print("已生成rss.xml（Atom格式）")
-
-if __name__ == "__main__":
-    generate_verge_popular_atom()
+        if not (
