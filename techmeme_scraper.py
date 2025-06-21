@@ -4,6 +4,7 @@ from feedgen.feed import FeedGenerator
 from datetime import datetime, timezone
 
 def get_entry_id(detail_soup, link):
+    # 优先用 canonical，其次 og:url，最后 fallback 用原始链接
     id_tag = detail_soup.find("link", rel="canonical")
     if id_tag and id_tag.has_attr("href"):
         return id_tag["href"]
@@ -24,12 +25,15 @@ def get_categories(detail_soup):
     return categories
 
 def get_content_html(detail_soup):
+    # 优先取正文article，保留图片
     article = detail_soup.find("article")
     if article:
+        # 保证图片src为绝对路径
         for img in article.find_all("img"):
             if img.has_attr("src") and img["src"].startswith("/"):
                 img["src"] = "https://www.theverge.com" + img["src"]
         return str(article)
+    # 兜底：用 og:description
     og_desc = detail_soup.find("meta", attrs={"property": "og:description"})
     if og_desc and og_desc.has_attr("content"):
         return og_desc["content"]
@@ -54,11 +58,13 @@ def generate_verge_popular_atom():
     fg.icon("https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&h=150&crop=1")
     fg.updated(datetime.now(timezone.utc))
 
+    # 定位Most Popular区域
     most_popular = soup.find("h2", string=lambda s: 'Most Popular' in s if isinstance(s, str) else False)
     if not most_popular:
         print("未找到Most Popular区域")
         return
 
+    # 获取5条新闻
     news_items = []
     for sib in most_popular.find_next_siblings():
         if isinstance(sib, Tag):
@@ -74,6 +80,7 @@ def generate_verge_popular_atom():
         return
 
     for item in news_items:
+        # 兼容li结构和a结构
         if isinstance(item, Tag) and item.name == "li":
             a = item.find("a")
         elif isinstance(item, Tag):
@@ -97,28 +104,35 @@ def generate_verge_popular_atom():
         entry_id = link
         categories = []
 
+        # 进入新闻详情页抓取更多字段
         try:
             detail = requests.get(link, headers=headers, timeout=10)
             detail.raise_for_status()
             detail_soup = BeautifulSoup(detail.text, "html.parser")
+            # 摘要
             desc_tag = detail_soup.find("meta", attrs={"name": "description"})
             if isinstance(desc_tag, Tag) and desc_tag.has_attr("content"):
                 desc = desc_tag["content"]
+            # 作者
             author_tag = detail_soup.find("meta", attrs={"name": "author"})
             if isinstance(author_tag, Tag) and author_tag.has_attr("content"):
                 author = author_tag["content"]
+            # 发布时间
             pub_tag = detail_soup.find("meta", attrs={"property": "article:published_time"})
             if isinstance(pub_tag, Tag) and pub_tag.has_attr("content"):
                 published = updated = pub_tag["content"]
+            # id
             entry_id = get_entry_id(detail_soup, link)
+            # 分类
             categories = get_categories(detail_soup)
+            # 正文内容（含图片）
             content_html = get_content_html(detail_soup)
         except Exception as e:
             content_html = desc
 
         fe = fg.add_entry()
         fe.id(entry_id)
-        fe.title(title)  # 只传文本，不加type
+        fe.title(title)
         fe.link(href=link, rel="alternate", type="text/html")
         fe.author({"name": author})
         fe.published(published)
