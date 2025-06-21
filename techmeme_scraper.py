@@ -16,49 +16,66 @@ def generate_rss():
 
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # Initialize the feed generator, but we don't expect it to have items yet.
         fg = FeedGenerator()
         fg.title('Techmeme Top News')
         fg.link(href=url, rel='alternate')
         fg.description('The top news from Techmeme.com, updated automatically.')
         fg.language('en')
 
+        # Find the main container for the top news column
         top_news_container = soup.find(id='topcol1')
 
         if not top_news_container:
-            print("CRITICAL ERROR: Could not find the top news container with id='topcol1'.")
-            # If the container isn't found, print the start of the whole page for debugging.
-            print("\n\n--- DEBUG: PRINTING ENTIRE PAGE HTML (up to 5000 chars) ---")
-            print(response.text[:5000])
-            print("--- END OF HTML DEBUGGING ---\n\n")
-        else:
-            print("Successfully found news container with id='topcol1'.")
-            # THIS IS THE MOST IMPORTANT STEP: Print the exact HTML we are working with.
-            print("\n\n--- DEBUG: PRINTING HTML OF 'topcol1' CONTAINER ---")
-            print(top_news_container.prettify())
-            print("--- END OF HTML DEBUGGING ---\n\n")
+            print("CRITICAL ERROR: Could not find the news container with id='topcol1'. The website layout has likely changed.")
+            # Still create an empty file to prevent the GitHub Action from failing on the commit step
+            fg.rss_file('rss.xml', pretty=True)
+            return
 
-        # We will still run the old logic to see what it outputs, but the main goal is the HTML print above.
-        title_blocks = top_news_container.find_all('div', class_='itit') if top_news_container else []
-        print(f"Attempting to find items... Found {len(title_blocks)} potential items.")
-
-        item_count = 0
-        for title_block in title_blocks:
-            title_tag = title_block.find('strong')
-            link_tag = title_tag.find('a') if title_tag else None
-            summary_block = title_block.find_next_sibling('div')
-
-            if link_tag and link_tag.has_attr('href') and summary_block:
-                item_count += 1
+        print("Successfully found news container 'topcol1'.")
         
-        print(f"Logic test complete. Found {item_count} valid items based on current logic.")
+        # New robust strategy: Find each story by looking for the headline and summary blocks together.
+        item_count = 0
+        
+        # Each main story headline is in a <div class="itit"> with a <strong> tag inside.
+        for title_block in top_news_container.find_all('div', class_='itit'):
+            strong_tag = title_block.find('strong')
+            if not strong_tag:
+                continue
 
-        # Always write an empty file for now. The goal is the log, not the rss.xml.
+            link_tag = strong_tag.find('a')
+            if not (link_tag and link_tag.has_attr('href')):
+                continue
+
+            # The summary is in the next sibling div, which has a class of 'iblk'
+            summary_block = title_block.find_next_sibling('div', class_='iblk')
+            if not summary_block:
+                continue
+
+            link = link_tag['href']
+            title = link_tag.get_text(strip=True)
+            
+            # The actual summary text is inside a span with class 'par'
+            summary_span = summary_block.find('span', class_='par')
+            summary = summary_span.get_text(strip=True) if summary_span else summary_block.get_text(strip=True)
+            
+            # If we found all parts, add the entry to the feed
+            fe = fg.add_entry()
+            fe.title(title)
+            fe.link(href=link)
+            fe.description(summary)
+            fe.id(link) # Use the link as a unique ID for the entry
+            item_count += 1
+
+        print(f"Success! Processed and added {item_count} news items to the feed.")
+
+        # Generate the RSS feed file
         fg.rss_file('rss.xml', pretty=True)
-        print("Diagnostic run complete. Please check the logs.")
+        print("RSS feed 'rss.xml' was generated successfully.")
 
+    except requests.exceptions.RequestException as e:
+        print(f"Error during network request: {e}")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"An unexpected error occurred: {e}")
 
 if __name__ == "__main__":
     generate_rss()
