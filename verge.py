@@ -1,26 +1,23 @@
 import requests
-from lxml import etree, html
+from lxml import html, etree
 
-def get_top_stories_links():
+def get_top_stories_titles():
     url = "https://www.theverge.com/"
     resp = requests.get(url, timeout=10)
     resp.raise_for_status()
     doc = html.fromstring(resp.content)
-    # 选取Top Stories区域的5个新闻链接
-    # 2024年6月的结构，Top Stories在data-cy="top-stories"的div下
-    top_stories = doc.xpath('//div[@data-cy="top-stories"]//a[@data-analytics-link="article"]/@href')
-    # 只取前5个，并补全为完整链接
-    links = []
-    for href in top_stories:
-        if href.startswith("http"):
-            links.append(href)
-        else:
-            links.append("https://www.theverge.com" + href)
-        if len(links) == 5:
+    # 选取Top Stories区域的5个新闻标题
+    top_stories = doc.xpath('//div[@data-cy="top-stories"]//a[@data-analytics-link="article"]')
+    titles = []
+    for a in top_stories:
+        title = a.text_content().strip()
+        if title:
+            titles.append(title)
+        if len(titles) == 5:
             break
-    return links
+    return titles
 
-def filter_rss_by_links(rss_url, output_file, links):
+def filter_rss_by_titles(rss_url, output_file, titles):
     resp = requests.get(rss_url, timeout=10)
     resp.raise_for_status()
     xml = resp.content
@@ -41,16 +38,18 @@ def filter_rss_by_links(rss_url, output_file, links):
             continue
         new_feed.append(child)
 
-    # 只保留链接在links里的entry
+    # 只保留标题在titles里的entry
     entries = root.findall('atom:entry', namespaces=ns)
     count = 0
     for entry in entries:
-        link_elem = entry.find('atom:link', namespaces=ns)
-        if link_elem is not None:
-            href = link_elem.get('href')
-            if href in links:
-                new_feed.append(entry)
-                count += 1
+        title_elem = entry.find('atom:title', namespaces=ns)
+        if title_elem is not None:
+            entry_title = title_elem.text.strip()
+            for top_title in titles:
+                if entry_title == top_title:
+                    new_feed.append(entry)
+                    count += 1
+                    break
 
     # 写入新文件
     tree = etree.ElementTree(new_feed)
@@ -58,9 +57,12 @@ def filter_rss_by_links(rss_url, output_file, links):
     print(f"已生成 {output_file}，共包含{count}条Top Stories新闻。")
 
 if __name__ == "__main__":
-    top_links = get_top_stories_links()
-    filter_rss_by_links(
+    top_titles = get_top_stories_titles()
+    print("Top Stories 标题：")
+    for t in top_titles:
+        print(t)
+    filter_rss_by_titles(
         rss_url="https://www.theverge.com/rss/index.xml",
         output_file="rss.xml",
-        links=top_links
+        titles=top_titles
     )
