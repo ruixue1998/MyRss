@@ -41,7 +41,7 @@ def is_match(entry_title, titles):
 def main():
     # 1. 获取 Top Stories 和 Most Popular 标题
     top_titles = get_top_titles()
-    print("Top Stories/Most Popular 标题：", top_titles)
+    print("【调试】Top Stories/Most Popular 标题：", top_titles)
 
     # 2. 获取 Atom Feed
     rss_url = "https://www.theverge.com/rss/index.xml"
@@ -56,7 +56,16 @@ def main():
     ns = {'atom': 'http://www.w3.org/2005/Atom'}
 
     entries = root.findall('atom:entry', namespaces=ns)
-    print("原始 entry 数量：", len(entries))
+    print("【调试】原始 entry 数量：", len(entries))
+
+    # 打印所有 entry 的标题，人工比对
+    all_entry_titles = []
+    for entry in entries:
+        title_elem = entry.find('atom:title', namespaces=ns)
+        if title_elem is not None:
+            entry_title = title_elem.text.strip()
+            all_entry_titles.append(entry_title)
+    print("【调试】Feed中所有 entry 的标题：", all_entry_titles)
 
     # 5. 只删除不需要的entry，绝不动其它内容
     removed_count = 0
@@ -68,8 +77,8 @@ def main():
                 root.remove(entry)
                 removed_count += 1
 
-    print("删除的 entry 数量：", removed_count)
-    print("保留后的 entry 数量：", len(root.findall('atom:entry', namespaces=ns)))
+    print("【调试】删除的 entry 数量：", removed_count)
+    print("【调试】保留后的 entry 数量：", len(root.findall('atom:entry', namespaces=ns)))
 
     # 6. 保存，覆盖rss.xml，保留所有内容和格式
     et = etree.ElementTree(root)
