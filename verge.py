@@ -50,6 +50,7 @@ for entry in list(root.findall('atom:entry', namespaces=ns)):
         if not any(entry_title.lower() == t.lower() for t in top_titles):
             root.remove(entry)
 
-# 6. 保存，保留所有内容和格式
+# 6. 保存，覆盖rss.xml，保留所有内容和格式
 et = etree.ElementTree(root)
-et.write('filtered_atom.xml', encoding='utf-8', xml_declaration=True, pretty_print=True)
+et.write('rss.xml', encoding='utf-8', xml_declaration=True, pretty_print=True)
+print("rss.xml 已更新！")
