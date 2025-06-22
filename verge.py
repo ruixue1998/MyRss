@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import xml.etree.ElementTree as ET
+from lxml import etree
 
 # 1. 获取 The Verge 首页，提取 Top Stories 和 Most Popular 标题
 home_url = "https://www.theverge.com/"
@@ -32,19 +32,23 @@ for h2 in soup.find_all('h2'):
 # 2. 获取 Atom Feed
 rss_url = "https://www.theverge.com/rss/index.xml"
 rss_resp = requests.get(rss_url)
-rss_root = ET.fromstring(rss_resp.content)
+rss_content = rss_resp.content
 
-# 3. 处理命名空间
+# 3. 用lxml解析，保留所有内容
+parser = etree.XMLParser(remove_blank_text=True)
+root = etree.fromstring(rss_content, parser=parser)
+
+# 4. 处理命名空间
 ns = {'atom': 'http://www.w3.org/2005/Atom'}
 
-# 4. 过滤entry，只保留标题匹配的
-for entry in list(rss_root.findall('atom:entry', ns)):
-    title_elem = entry.find('atom:title', ns)
+# 5. 过滤entry，只保留标题匹配的
+for entry in root.findall('atom:entry', namespaces=ns):
+    title_elem = entry.find('atom:title', namespaces=ns)
     if title_elem is not None:
-        # 注意CDATA内容自动被ElementTree解析为text
         title = title_elem.text.strip()
         if title not in top_titles:
-            rss_root.remove(entry)
+            root.remove(entry)
 
-# 5. 保存新 Atom Feed
-ET.ElementTree(rss_root).write('filtered_atom.xml', encoding='utf-8', xml_declaration=True)
+# 6. 保存新 Atom Feed，保留格式和CDATA
+et = etree.ElementTree(root)
+et.write('filtered_atom.xml', encoding='utf-8', xml_declaration=True, pretty_print=True)
