@@ -34,21 +34,22 @@ rss_url = "https://www.theverge.com/rss/index.xml"
 rss_resp = requests.get(rss_url)
 rss_content = rss_resp.content
 
-# 3. 用lxml解析，保留所有内容
+# 3. 用lxml解析
 parser = etree.XMLParser(remove_blank_text=True)
 root = etree.fromstring(rss_content, parser=parser)
 
 # 4. 处理命名空间
 ns = {'atom': 'http://www.w3.org/2005/Atom'}
 
-# 5. 过滤entry，只保留标题匹配的
-for entry in root.findall('atom:entry', namespaces=ns):
+# 5. 只删除不需要的entry，绝不动其它内容
+for entry in list(root.findall('atom:entry', namespaces=ns)):
     title_elem = entry.find('atom:title', namespaces=ns)
     if title_elem is not None:
-        title = title_elem.text.strip()
-        if title not in top_titles:
+        entry_title = title_elem.text.strip()
+        # 宽松匹配，防止误删
+        if not any(entry_title.lower() == t.lower() for t in top_titles):
             root.remove(entry)
 
-# 6. 保存新 Atom Feed，保留格式和CDATA
+# 6. 保存，保留所有内容和格式
 et = etree.ElementTree(root)
 et.write('filtered_atom.xml', encoding='utf-8', xml_declaration=True, pretty_print=True)
