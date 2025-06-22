@@ -15,6 +15,10 @@ def get_top_stories_titles():
             titles.append(title)
         if len(titles) == 5:
             break
+    print("【Top Stories 标题】")
+    for idx, t in enumerate(titles, 1):
+        print(f"{idx}. {t}")
+    print("-" * 40)
     return titles
 
 def filter_rss_by_titles(rss_url, output_file, titles):
@@ -41,15 +45,24 @@ def filter_rss_by_titles(rss_url, output_file, titles):
     # 只保留标题在titles里的entry
     entries = root.findall('atom:entry', namespaces=ns)
     count = 0
+    print("【RSS entry 标题及匹配情况】")
     for entry in entries:
         title_elem = entry.find('atom:title', namespaces=ns)
         if title_elem is not None:
             entry_title = title_elem.text.strip()
+            matched = False
             for top_title in titles:
-                if entry_title == top_title:
-                    new_feed.append(entry)
-                    count += 1
+                # 忽略大小写，模糊匹配
+                if top_title.lower() in entry_title.lower() or entry_title.lower() in top_title.lower():
+                    matched = True
                     break
+            print(f"RSS标题: {entry_title}")
+            print(f"  匹配结果: {'✔️ 匹配' if matched else '❌ 不匹配'}")
+            if matched:
+                new_feed.append(entry)
+                count += 1
+    print("-" * 40)
+    print(f"最终匹配到 {count} 条Top Stories新闻。")
 
     # 写入新文件
     tree = etree.ElementTree(new_feed)
@@ -58,9 +71,6 @@ def filter_rss_by_titles(rss_url, output_file, titles):
 
 if __name__ == "__main__":
     top_titles = get_top_stories_titles()
-    print("Top Stories 标题：")
-    for t in top_titles:
-        print(t)
     filter_rss_by_titles(
         rss_url="https://www.theverge.com/rss/index.xml",
         output_file="rss.xml",
