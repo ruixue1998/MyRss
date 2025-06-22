@@ -1,97 +1,54 @@
-import requests
-from lxml import html, etree
+import feedparser
+from xml.etree.ElementTree import Element, SubElement, tostring, ElementTree
 
-def get_top_stories_titles():
-    url = "https://www.theverge.com/"
-    print(f"正在请求 The Verge 首页: {url}")
-    try:
-        resp = requests.get(url, timeout=10)
-        resp.raise_for_status()
-    except Exception as e:
-        print(f"请求首页失败: {e}")
-        return []
-    doc = html.fromstring(resp.content)
-    # 选取Top Stories区域的5个新闻标题
-    print("正在解析首页 Top Stories 区域...")
-    top_stories = doc.xpath('//div[@data-cy="top-stories"]//a[@data-analytics-link="article"]')
-    print(f"共找到 {len(top_stories)} 个 Top Stories 链接节点")
-    titles = []
-    for a in top_stories:
-        title = a.text_content().strip()
-        print(f"抓取到标题: {title}")
-        if title:
-            titles.append(title)
-        if len(titles) == 5:
-            break
-    print("【Top Stories 标题列表】")
-    for idx, t in enumerate(titles, 1):
-        print(f"{idx}. {t}")
-    print("-" * 40)
-    return titles
+# 你要抓取的RSS源
+RSS_URL = "https://www.theverge.com/rss/index.xml"
 
-def filter_rss_by_titles(rss_url, output_file, titles):
-    print(f"正在请求 RSS 源: {rss_url}")
-    try:
-        resp = requests.get(rss_url, timeout=10)
-        resp.raise_for_status()
-    except Exception as e:
-        print(f"请求RSS失败: {e}")
-        return
-    xml = resp.content
+# 你要筛选的标题列表（去重后的Top Stories和Most Popular）
+TARGET_TITLES = [
+    "The Nintendo Switch 2 is an awesome upgrade for parents like me",
+    "Meta announces Oakley smart glasses",
+    "28 Years Later is a bleak fever dream with rage pumping through its veins",
+    "Inside the courthouse reshaping the future of the internet",
+    "What happens when AI comes for our fonts?",
+    "You sound like ChatGPT",
+    "The Verge’s guide to Amazon Prime Day 2025",
+    "Apple’s tiny M4 Mac Mini has dropped to its lowest price yet",
+    "Samsung’s entry-level Galaxy Watch 7 has returned to its best price to date"
+]
 
-    parser = etree.XMLParser(remove_blank_text=True)
-    root = etree.fromstring(xml, parser=parser)
+def main():
+    feed = feedparser.parse(RSS_URL)
+    # 创建Atom根节点
+    feed_elem = Element('feed', {
+        'xmlns': 'http://www.w3.org/2005/Atom',
+        'xmlns:thr': 'http://purl.org/syndication/thread/1.0'
+    })
+    title_elem = SubElement(feed_elem, 'title', {'type': 'text'})
+    title_elem.text = "The Verge"
+    subtitle_elem = SubElement(feed_elem, 'subtitle', {'type': 'text'})
+    subtitle_elem.text = "The Verge is about technology and how it makes us feel. Founded in 2011, we offer our audience everything from breaking news to reviews to award-winning features and investigations, on our site, in video, and in podcasts."
+    link_elem = SubElement(feed_elem, 'link', {'rel': 'alternate', 'type': 'text/html', 'href': 'https://www.theverge.com'})
+    id_elem = SubElement(feed_elem, 'id')
+    id_elem.text = RSS_URL
 
-    ns = {
-        'atom': 'http://www.w3.org/2005/Atom',
-        'thr': 'http://purl.org/syndication/thread/1.0'
-    }
+    # 按标题筛选
+    for entry in feed.entries:
+        if entry.title in TARGET_TITLES:
+            entry_elem = SubElement(feed_elem, 'entry')
+            title = SubElement(entry_elem, 'title')
+            title.text = entry.title
+            link = SubElement(entry_elem, 'link', {'href': entry.link})
+            id_ = SubElement(entry_elem, 'id')
+            id_.text = entry.link
+            updated = SubElement(entry_elem, 'updated')
+            updated.text = entry.updated if hasattr(entry, 'updated') else entry.published
+            summary = SubElement(entry_elem, 'summary', {'type': 'html'})
+            summary.text = entry.summary if hasattr(entry, 'summary') else ''
 
-    # 构建新feed
-    new_feed = etree.Element(root.tag, nsmap=root.nsmap)
-    # 复制feed下除entry外的所有节点
-    for child in root:
-        if child.tag.endswith('entry'):
-            continue
-        new_feed.append(child)
-
-    # 只保留标题在titles里的entry
-    entries = root.findall('atom:entry', namespaces=ns)
-    print(f"RSS 共找到 {len(entries)} 条 entry")
-    count = 0
-    for entry in entries:
-        title_elem = entry.find('atom:title', namespaces=ns)
-        if title_elem is not None:
-            entry_title = title_elem.text.strip()
-            print(f"RSS entry标题: {entry_title}")
-            matched = False
-            for top_title in titles:
-                print(f"  与Top Stories标题对比: {top_title}")
-                # 忽略大小写，模糊匹配
-                if top_title.lower() in entry_title.lower() or entry_title.lower() in top_title.lower():
-                    matched = True
-                    print("    => 匹配成功！")
-                    break
-            if matched:
-                new_feed.append(entry)
-                count += 1
-            else:
-                print("    => 未匹配")
-    print("-" * 40)
-    print(f"最终匹配到 {count} 条Top Stories新闻。")
-
-    # 写入新文件
-    tree = etree.ElementTree(new_feed)
-    tree.write(output_file, encoding='utf-8', xml_declaration=True, pretty_print=True)
-    print(f"已生成 {output_file}，共包含{count}条Top Stories新闻。")
+    # 输出到文件
+    tree = ElementTree(feed_elem)
+    tree.write("rss.xml", encoding="utf-8", xml_declaration=True)
 
 if __name__ == "__main__":
-    top_titles = get_top_stories_titles()
-    if not top_titles:
-        print("未获取到任何 Top Stories 标题，程序终止。")
-    else:
-        filter_rss_by_titles(
-            rss_url="https://www.theverge.com/rss/index.xml",
-            output_file="rss.xml",
-            titles=top_titles
-        )
+    main()
