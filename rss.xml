@@ -3,61 +3,11 @@
 	<title type="text">The Verge</title>
 	<subtitle type="text">The Verge is about technology and how it makes us feel. Founded in 2011, we offer our audience everything from breaking news to reviews to award-winning features and investigations, on our site, in video, and in podcasts.</subtitle>
 
-	<updated>2025-06-24T02:01:54+00:00</updated>
+	<updated>2025-06-24T23:20:37+00:00</updated>
 
 	<link rel="alternate" type="text/html" href="https://www.theverge.com"/>
 	<id>https://www.theverge.com/rss/index.xml</id>
 	<link rel="self" type="application/atom+xml" href="https://www.theverge.com/rss/index.xml"/>
 
 	<icon>https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&amp;h=150&amp;crop=1</icon>
-		<entry>
-			
-			<author>
-				<name>Jay Peters</name>
-			</author>
-			
-			<title type="html">Apple heard your complaints about the Liquid Glass Control Center</title>
-			<link rel="alternate" type="text/html" href="https://www.theverge.com/news/691540/apple-ios-26-liquid-glass-control-center-fixed-beta"/>
-			<id>https://www.theverge.com/?p=691540</id>
-			<updated>2025-06-23T16:37:34-04:00</updated>
-			<published>2025-06-23T16:34:27-04:00</published>
-			<category scheme="https://www.theverge.com" term="Apple"/><category scheme="https://www.theverge.com" term="iOS"/><category scheme="https://www.theverge.com" term="News"/><category scheme="https://www.theverge.com" term="Tech"/>
-							<summary type="html">My biggest complaint with Liquid Glass in the first iOS 26 developer beta was that it sometimes made Control Center nearly unreadable, but Apple has seemingly fixed that with the second beta, which is out now. In the first beta, the glassiness of everything meant that you could still see a fair amount of what [&amp;#8230;]</summary>
-			
-							<content type="html">
-											
-
-						
-&lt;figure&gt;
-
-&lt;img alt="" data-caption="" data-portal-copyright="" data-has-syndication-rights="1" src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/06/lcimg-94e7943b-20a6-4c28-b192-0a9f88f2dabe.jpeg?quality=90&amp;#038;strip=all&amp;#038;crop=0,0,100,100" /&gt;
-	&lt;figcaption&gt;
-		&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p class="has-text-align-none"&gt;My biggest complaint with Liquid Glass in the first iOS 26 developer beta was that it sometimes made Control Center &lt;a href="https://www.theverge.com/apple/683914/apple-iphone-ios-26-changes-liquid-glass"&gt;nearly unreadable&lt;/a&gt;, but Apple has seemingly fixed that with the second beta, which is out now.&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;In the first beta, the glassiness of everything meant that you could still see a fair amount of what was under Control Center, making it all look really cluttered. With the second beta, what’s under Control Center is much more opaque, making it much easier to read at a glance.&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;Take a look in this comparison slider:&lt;/p&gt;
-
-&lt;div class="c-image-compare alignnone wp-block-vox-media-image-compare"&gt;
-	&lt;div class="c-image-compare__images"&gt;
-		
-&lt;img src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/06/IMG_7155.png?quality=90&amp;#038;strip=all&amp;#038;crop=0,37.959313261529,100,24.081373476943" alt="" title="" data-has-syndication-rights="1" data-caption="" data-portal-copyright="" /&gt;
-
-&lt;img src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/06/IMG_7244.png?quality=90&amp;#038;strip=all&amp;#038;crop=0,37.959313261529,100,24.081373476943" alt="" title="" data-has-syndication-rights="1" data-caption="" data-portal-copyright="" /&gt;
-	&lt;/div&gt;
-	&lt;div class="c-image-compare__caption"&gt;
-		&lt;em&gt;Developer beta 1 on the left, developer beta 2 on the right.&lt;/em&gt; &lt;em&gt;This isn’t a perfect comparison because I’ve switched a few app icons on my homescreen&lt;/em&gt;, &lt;em&gt;but hopefully you can get the idea.&lt;/em&gt;	&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p class="has-text-align-none"&gt;In the second developer beta, some colors still bleed into the Control Center buttons in a way that could potentially be confusing. But overall, I think Apple is moving in the right direction here. I’m curious if the company will make more changes ahead of the general release &lt;a href="https://www.theverge.com/news/675819/ios-26-macos-tahoe-26-release-date-apple-wwdc-2025"&gt;this fall&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;As reported &lt;a href="https://9to5mac.com/2025/06/23/ios-26-beta-2-changes/"&gt;by &lt;em&gt;9to5Mac&lt;/em&gt;&lt;/a&gt;, the beta includes a few other changes, too, including an &lt;a href="https://9to5mac.com/2025/06/23/ios-26-beta-2-adds-brand-new-iphone-ringtone-listen-here/"&gt;&lt;em&gt;excellent&lt;/em&gt; new ringtone&lt;/a&gt; that’s an alternate of the Reflections song. It sounds like something you’d hear in an &lt;em&gt;Ace Attorney&lt;/em&gt; game. I switched to it right away.&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;If you want to try the developer beta yourself, &lt;a href="https://www.theverge.com/684487/ios-ipados-26-install-developer-how-to"&gt;here’s our guide on how to install it&lt;/a&gt;. If you don’t want to be on the bleeding edge but still want to try what Apple is working on, the company is set to launch a public beta next month.&lt;/p&gt;
-						
-									</content>
-			
-					</entry>
-	</feed>
+		</feed>
