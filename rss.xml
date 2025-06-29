@@ -3,11 +3,82 @@
 	<title type="text">The Verge</title>
 	<subtitle type="text">The Verge is about technology and how it makes us feel. Founded in 2011, we offer our audience everything from breaking news to reviews to award-winning features and investigations, on our site, in video, and in podcasts.</subtitle>
 
-	<updated>2025-06-27T23:06:45+00:00</updated>
+	<updated>2025-06-28T18:38:31+00:00</updated>
 
 	<link rel="alternate" type="text/html" href="https://www.theverge.com"/>
 	<id>https://www.theverge.com/rss/index.xml</id>
 	<link rel="self" type="application/atom+xml" href="https://www.theverge.com/rss/index.xml"/>
 
 	<icon>https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&amp;h=150&amp;crop=1</icon>
-		</feed>
+		<entry>
+			
+			<author>
+				<name>Adi Robertson</name>
+			</author>
+			
+			<title type="html">The Supreme Court just upended internet law, and I have questions</title>
+			<link rel="alternate" type="text/html" href="https://www.theverge.com/analysis/694710/supreme-court-fsc-paxton-age-verification-questions"/>
+			<id>https://www.theverge.com/?p=694710</id>
+			<updated>2025-06-28T14:38:31-04:00</updated>
+			<published>2025-06-28T11:00:00-04:00</published>
+			<category scheme="https://www.theverge.com" term="Analysis"/><category scheme="https://www.theverge.com" term="Policy"/><category scheme="https://www.theverge.com" term="Speech"/>
+							<summary type="html">Age verification is perhaps the hottest battleground for online speech, and the Supreme Court just settled a pivotal question: does using it to gate adult content violate the First Amendment in the US? For roughly the past 20 years the answer has been "yes" - now, as of Friday, it's an unambiguous "no." Justice Clarence [&amp;#8230;]</summary>
+			
+							<content type="html">
+											
+
+						
+&lt;figure&gt;
+
+&lt;img alt="" data-caption="" data-portal-copyright="" data-has-syndication-rights="1" src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STK453_PRIVACY_E_CVirginia.jpg?quality=90&amp;#038;strip=all&amp;#038;crop=0,0,100,100" /&gt;
+	&lt;figcaption&gt;
+		&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class="has-text-align-none"&gt;Age verification is perhaps the hottest battleground for online speech, and &lt;a href="https://www.theverge.com/internet-censorship/686042/supreme-court-fsc-paxton-porn-age-verification-ruling"&gt;the Supreme Court just settled&lt;/a&gt; a pivotal question: does using it to gate adult content violate the First Amendment in the US? For &lt;a href="https://hls.harvard.edu/today/can-texas-limit-citizens-access-to-online-content/"&gt;roughly the past 20 years&lt;/a&gt; the answer has been "yes" - now, as of Friday, it's an unambiguous "no."&lt;/p&gt;
+&lt;p class="has-text-align-none"&gt;&lt;a href="https://www.supremecourt.gov/opinions/24pdf/23-1122_3e04.pdf"&gt;Justice Clarence Thomas' opinion&lt;/a&gt; in &lt;em&gt;Free Speech Coalition v. Paxton&lt;/em&gt; is relatively straightforward as Supreme Court rulings go. To summarize, its conclusion is that:&lt;/p&gt;
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;States have a valid interest in keeping kids away from pornography&lt;/li&gt;
+&lt;li&gt;Making people prove their ages is a valid strategy to enforce that&lt;/li&gt;
+&lt;li&gt;Internet age verification only "incidentally" affects how adults can access protected speech&lt;/li&gt;
+&lt;li&gt;The risks aren't meaningfully different from showing your ID at a liquor store&lt;/li&gt;
+&lt;li&gt;Yes, the Supreme Court threw out age verification rules repeatedly in the early 2000s, but the internet of 2025 is so different the old reasoning no longer applies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="has-text-align-none"&gt;Around this string of logic, you'll find a huge number of objections and unknowns. Many of these were laid out before the decision: &lt;a href="https://www.eff.org/deeplinks/2025/01/five-things-know-about-supreme-court-case-texas-age-verification-law-free-speech"&gt;the Electronic Frontier Foundation has&lt;/a&gt; an overview of the issues, and &lt;a href="https://www.404media.co/age-verification-laws-will-drag-us-back-to-the-dark-ages-of-online-porn/"&gt;&lt;em&gt;404 Media&lt;/em&gt; goes deeper on&lt;/a&gt; the potential  …&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.theverge.com/analysis/694710/supreme-court-fsc-paxton-age-verification-questions"&gt;Read the full story at The Verge.&lt;/a&gt;&lt;/p&gt;
+						
+									</content>
+			
+					</entry>
+			<entry>
+			
+			<author>
+				<name>Tina Nguyen</name>
+			</author>
+			
+			<title type="html">Facebook is starting to feed its AI with private, unpublished photos</title>
+			<link rel="alternate" type="text/html" href="https://www.theverge.com/meta/694685/meta-ai-camera-roll"/>
+			<id>https://www.theverge.com/?p=694685</id>
+			<updated>2025-06-27T23:53:40-04:00</updated>
+			<published>2025-06-27T19:30:00-04:00</published>
+			<category scheme="https://www.theverge.com" term="AI"/><category scheme="https://www.theverge.com" term="Meta"/><category scheme="https://www.theverge.com" term="Tech"/>
+							<summary type="html">For years, Meta trained its AI programs using the billions of public images uploaded by users onto Facebook and Instagram's servers. Now, it's also hoping to access the billions of images that users haven't uploaded to those servers. Meta tells The Verge that it's not currently training its AI models on those photos, but it [&amp;#8230;]</summary>
+			
+							<content type="html">
+											
+
+						
+&lt;figure&gt;
+
+&lt;img alt="" data-caption="" data-portal-copyright="" data-has-syndication-rights="1" src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/06/257467_Meta_Quest_3S_AKrales_0117.webp?quality=90&amp;#038;strip=all&amp;#038;crop=0,0,100,100" /&gt;
+	&lt;figcaption&gt;
+		&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p class="has-text-align-none"&gt;For years, Meta trained its AI programs using the billions of public images uploaded by users onto Facebook and Instagram's servers. Now, it's also hoping to access the billions of images that users &lt;em&gt;haven't &lt;/em&gt;uploaded to those servers. Meta tells &lt;em&gt;The Verge&lt;/em&gt; that it's not &lt;em&gt;currently&lt;/em&gt; training its AI models on those photos, but it would not answer our questions about whether it might do so in future, or what rights it will hold over your camera roll images.&lt;/p&gt;
+&lt;p class="has-text-align-none"&gt;&lt;a href="https://techcrunch.com/2025/06/27/facebook-is-asking-to-use-meta-ai-on-photos-in-your-camera-roll-you-havent-yet-shared/"&gt;On Friday, &lt;em&gt;TechCrunch&lt;/em&gt; reported&lt;/a&gt; that Facebook users trying to post something on the Story feature have encountered pop-up messages asking if they'd like to opt into "cloud processing", which would allow Facebook to "select media from your camera roll and upload it to our cloud on a regular basis", to generate "ideas like collages, recaps, AI restyling or themes like birthdays or graduations." &lt;/p&gt;
+&lt;p class="has-text-align-none"&gt;By allowing this feature, the message continues, users are agreeing to Meta AI terms, which allows their AI to analyze "media and facial features" of those unpublished photos, as well as the date said photos were taken, and the presence of other people or objects in them. You further grant Meta the right to "retain and use" that personal inform …&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.theverge.com/meta/694685/meta-ai-camera-roll"&gt;Read the full story at The Verge.&lt;/a&gt;&lt;/p&gt;
+						
+									</content>
+			
+					</entry>
+			</feed>
