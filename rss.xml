@@ -3,43 +3,11 @@
 	<title type="text">The Verge</title>
 	<subtitle type="text">The Verge is about technology and how it makes us feel. Founded in 2011, we offer our audience everything from breaking news to reviews to award-winning features and investigations, on our site, in video, and in podcasts.</subtitle>
 
-	<updated>2025-07-07T23:45:05+00:00</updated>
+	<updated>2025-07-09T03:10:48+00:00</updated>
 
 	<link rel="alternate" type="text/html" href="https://www.theverge.com"/>
 	<id>https://www.theverge.com/rss/index.xml</id>
 	<link rel="self" type="application/atom+xml" href="https://www.theverge.com/rss/index.xml"/>
 
 	<icon>https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&amp;h=150&amp;crop=1</icon>
-		<entry>
-			
-			<author>
-				<name>Andrew J. Hawkins</name>
-			</author>
-			
-			<title type="html">Tesla’s real struggles have only just begun</title>
-			<link rel="alternate" type="text/html" href="https://www.theverge.com/tesla/699431/tesla-musk-trump-ev-regulatory-credit-loss"/>
-			<id>https://www.theverge.com/?p=699431</id>
-			<updated>2025-07-07T14:43:00-04:00</updated>
-			<published>2025-07-07T14:43:00-04:00</published>
-			<category scheme="https://www.theverge.com" term="Electric Cars"/><category scheme="https://www.theverge.com" term="Elon Musk"/><category scheme="https://www.theverge.com" term="Policy"/><category scheme="https://www.theverge.com" term="Politics"/><category scheme="https://www.theverge.com" term="Tech"/><category scheme="https://www.theverge.com" term="Tesla"/><category scheme="https://www.theverge.com" term="Transportation"/>
-							<summary type="html">Tesla used to be the envy of the auto world, with sky-high valuations, a relentless focus on tech, and a CEO that commanded unprecedented loyalty from his customers. Now the company's reputation is in shambles, its financial future looks increasingly grim, and its costly bets on AI and robotics are unlikely to pay off anytime [&amp;#8230;]</summary>
-			
-							<content type="html">
-											
-
-						
-&lt;figure&gt;
-
-&lt;img alt="photo of Tesla protestors " data-caption="People hold signs as they gather in a protest outside a Tesla dealership in Lisbon against Tesla and SpaceX CEO Elon Musk on March 9th, 2025. | Photo: AFP via Getty Images" data-portal-copyright="Photo: AFP via Getty Images" data-has-syndication-rights="1" src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/03/gettyimages-2203624618.jpg?quality=90&amp;#038;strip=all&amp;#038;crop=0,0,100,100" /&gt;
-	&lt;figcaption&gt;
-	People hold signs as they gather in a protest outside a Tesla dealership in Lisbon against Tesla and SpaceX CEO Elon Musk on March 9th, 2025. | Photo: AFP via Getty Images	&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p class="has-text-align-none"&gt;Tesla used to be the envy of the auto world, with sky-high valuations, a relentless focus on tech, and a CEO that commanded unprecedented loyalty from his customers. &lt;/p&gt;
-&lt;p class="has-text-align-none"&gt;Now the company's reputation is in shambles, its financial future looks increasingly grim, and its costly bets on AI and robotics are unlikely to pay off anytime soon. Weirdly, CEO Elon Musk has only just "woken up" to the mounting crisis on his doorstep. That's according to an unnamed "former Tesla executive," &lt;a href="https://www.ft.com/content/aaf1a903-1936-4807-9fa0-6fbbe2485edb"&gt;who told the &lt;em&gt;Financial Times&lt;/em&gt;&lt;/a&gt; that Musk has only just now come to terms with the damage his political activities are creating for Tesla.&lt;/p&gt;
-&lt;p class="has-text-align-none"&gt;&lt;a href="https://www.theverge.com/policy/697879/congress-house-senate-pass-trump-obbb"&gt;The passage of President Donald …&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.theverge.com/tesla/699431/tesla-musk-trump-ev-regulatory-credit-loss"&gt;Read the full story at The Verge.&lt;/a&gt;&lt;/p&gt;
-						
-									</content>
-			
-					</entry>
-			</feed>
+		</feed>
