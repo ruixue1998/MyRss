@@ -3,7 +3,7 @@
 	<title type="text">The Verge</title>
 	<subtitle type="text">The Verge is about technology and how it makes us feel. Founded in 2011, we offer our audience everything from breaking news to reviews to award-winning features and investigations, on our site, in video, and in podcasts.</subtitle>
 
-	<updated>2025-07-13T12:20:17+00:00</updated>
+	<updated>2025-07-14T22:24:39+00:00</updated>
 
 	<link rel="alternate" type="text/html" href="https://www.theverge.com"/>
 	<id>https://www.theverge.com/rss/index.xml</id>
@@ -13,16 +13,16 @@
 		<entry>
 			
 			<author>
-				<name>Jay Peters</name>
+				<name>Lauren Feiner</name>
 			</author>
 			
-			<title type="html">Foldables are in and suddenly really thin</title>
-			<link rel="alternate" type="text/html" href="https://www.theverge.com/installer-newsletter/705979/samsung-galaxy-z-fold-flip-7-nothing-phone-headphone-installer"/>
-			<id>https://www.theverge.com/?p=705979</id>
-			<updated>2025-07-11T17:18:17-04:00</updated>
-			<published>2025-07-13T08:00:00-04:00</published>
-			<category scheme="https://www.theverge.com" term="Installer"/><category scheme="https://www.theverge.com" term="Tech"/>
-							<summary type="html">Hi! Welcome to Installer No. 89, your guide to the best and Verge-iest stuff in the world. My name is Jay Peters, and I will be taking care of Installer while David is on parental leave. All of us here at The Verge are very excited for him and his family, and he'll be back [&amp;#8230;]</summary>
+			<title type="html">US government announces $200 million Grok contract a week after ‘MechaHitler’ incident</title>
+			<link rel="alternate" type="text/html" href="https://www.theverge.com/news/706855/grok-mechahitler-xai-defense-department-contract"/>
+			<id>https://www.theverge.com/?p=706855</id>
+			<updated>2025-07-14T14:44:46-04:00</updated>
+			<published>2025-07-14T13:58:16-04:00</published>
+			<category scheme="https://www.theverge.com" term="AI"/><category scheme="https://www.theverge.com" term="Elon Musk"/><category scheme="https://www.theverge.com" term="News"/><category scheme="https://www.theverge.com" term="Policy"/><category scheme="https://www.theverge.com" term="Tech"/><category scheme="https://www.theverge.com" term="xAI"/>
+							<summary type="html">A week after Elon Musk’s Grok dubbed itself “MechaHitler” and spewed antisemitic stereotypes, the US government has announced a new contract granting the chatbot’s creator, xAI, up to $200 million to modernize the Defense Department. xAI is one of several leading AI companies to receive the award, alongside Anthropic, Google, and OpenAI. But the timing [&amp;#8230;]</summary>
 			
 							<content type="html">
 											
@@ -30,98 +30,17 @@
 						
 &lt;figure&gt;
 
-&lt;img alt="" data-caption="" data-portal-copyright="" data-has-syndication-rights="1" src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/07/installer.png?quality=90&amp;#038;strip=all&amp;#038;crop=0,0,100,100" /&gt;
+&lt;img alt="" data-caption="" data-portal-copyright="" data-has-syndication-rights="1" src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STK262_GROK_XAI__A.png?quality=90&amp;#038;strip=all&amp;#038;crop=0,0,100,100" /&gt;
 	&lt;figcaption&gt;
 		&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p class="has-text-align-none"&gt;Hi! Welcome to &lt;em&gt;Installer&lt;/em&gt; No. 89, your guide to the best and &lt;em&gt;Verge&lt;/em&gt;-iest stuff in the world. My name is Jay Peters, and I will be taking care of &lt;em&gt;Installer&lt;/em&gt; while David is on parental leave. All of us here at &lt;em&gt;The Verge&lt;/em&gt; are very excited for him and his family, and he'll be back later this year.&lt;/p&gt;
-&lt;p class="has-text-align-none"&gt;It's a huge honor to be writing this. I look forward to &lt;em&gt;Installer&lt;/em&gt; every week to see what awesome things David is obsessed with and what you all are into. (Thanks to everyone who sent over their favorite non-famous apps to get me started. Keep reading for some of those!) I'm really excited to keep the party going. (If you're new here, welcome, and also you …&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.theverge.com/installer-newsletter/705979/samsung-galaxy-z-fold-flip-7-nothing-phone-headphone-installer"&gt;Read the full story at The Verge.&lt;/a&gt;&lt;/p&gt;
-						
-									</content>
-			
-					</entry>
-			<entry>
-			
-			<author>
-				<name>Richard Lawler</name>
-			</author>
-			
-			<title type="html">xAI explains the Grok Nazi meltdown, as Tesla puts Elon’s bot in its cars</title>
-			<link rel="alternate" type="text/html" href="https://www.theverge.com/news/706498/xai-grok-hitler-antisemitism-tesla-ai-bot"/>
-			<id>https://www.theverge.com/?p=706498</id>
-			<updated>2025-07-13T08:20:17-04:00</updated>
-			<published>2025-07-12T20:54:56-04:00</published>
-			<category scheme="https://www.theverge.com" term="AI"/><category scheme="https://www.theverge.com" term="AMD"/><category scheme="https://www.theverge.com" term="Electric Cars"/><category scheme="https://www.theverge.com" term="Elon Musk"/><category scheme="https://www.theverge.com" term="News"/><category scheme="https://www.theverge.com" term="Tech"/><category scheme="https://www.theverge.com" term="Tesla"/><category scheme="https://www.theverge.com" term="Transportation"/><category scheme="https://www.theverge.com" term="xAI"/>
-							<summary type="html">Several days after temporarily shutting down the Grok AI bot that was producing antisemitic posts and praising Hitler in response to user prompts, Elon Musk’s AI company tried to explain why that happened. In a series of posts on X, it said that “&amp;#8230;we discovered the root cause was an update to a code path [&amp;#8230;]</summary>
-			
-							<content type="html">
-											
+&lt;p class="has-text-align-none"&gt;A week after Elon Musk’s Grok dubbed itself “&lt;a href="https://archive.ph/YktYp#selection-639.86-636.2"&gt;MechaHitler&lt;/a&gt;” and &lt;a href="https://www.theverge.com/ai-artificial-intelligence/699788/xai-updated-grok-to-be-more-politically-incorrect"&gt;spewed antisemitic stereotypes&lt;/a&gt;, the US government has &lt;a href="https://www.ai.mil/Latest/News-Press/PR-View/Article/4242822/cdao-announces-partnerships-with-frontier-ai-companies-to-address-national-secu/"&gt;announced a new contract&lt;/a&gt; granting the chatbot’s creator, xAI, up to $200 million to modernize the Defense Department.&lt;/p&gt;
 
-						
-&lt;figure&gt;
+&lt;p class="has-text-align-none"&gt;xAI is one of several leading AI companies to receive the award, alongside Anthropic, Google, and OpenAI. But the timing of the announcement is striking given Grok’s recent high-profile spiral, which drew &lt;a href="https://www.theverge.com/x-ai/705395/congress-has-questions-about-mechahitler"&gt;congressional ire&lt;/a&gt; and public pushback. The use of technology, and especially AI, in the defense space has long been a controversial topic even within the tech industry, and Musk’s prior involvement in slashing federal government contracts through his work at the Department of Government Efficiency (DOGE) still raises &lt;a href="https://www.theverge.com/news/657042/musk-companies-conflict-of-interest-doge-trump-liability"&gt;questions about potential conflicts&lt;/a&gt; — though his relationship with President Donald Trump has &lt;a href="https://www.theverge.com/elon-musk/680817/trump-musk-the-girls-are-fightingggg"&gt;more recently soured&lt;/a&gt;, and Trump’s administration has &lt;a href="https://fortune.com/2025/02/06/elon-musk-conflicts-interest-doge-tesla-spacex/"&gt;claimed&lt;/a&gt; Musk would step back from any potential conflicts while at DOGE.&lt;/p&gt;
 
-&lt;img alt="" data-caption="" data-portal-copyright="" data-has-syndication-rights="1" src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STK262_GROK_B_B.jpg?quality=90&amp;#038;strip=all&amp;#038;crop=0,0,100,100" /&gt;
-	&lt;figcaption&gt;
-		&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p class="has-text-align-none"&gt;Several days after temporarily shutting down the Grok AI bot that was producing antisemitic posts and praising Hitler in response to user prompts, Elon Musk’s AI company tried to explain why that happened. In &lt;a href="https://x.com/grok/status/1943916981104914779"&gt;a series of posts on X&lt;/a&gt;, it said that “&amp;#8230;we discovered the root cause was an update to a code path upstream of the @grok bot. This is independent of the underlying language model that powers @grok.”&lt;/p&gt;
+&lt;p class="has-text-align-none"&gt;The contract announcement from the Chief Digital and Artificial Intelligence Office (CDAO) is light on details, but says the deals will help the DoD “develop agentic AI workflows across a variety of mission areas.” Alongside the contract award, xAI &lt;a href="https://x.ai/news/government"&gt;announced&lt;/a&gt; “Grok for Government,” which it says will supply “frontier AI products” to the US. In addition to the DoD contract, xAI says other federal agencies will now be able to purchase its tools via the General Services Administration (GSA) schedule. The company plans to work on new products for government customers, like custom models focused on national security, applications for healthcare and science use cases, and models accessible in classified environments.&lt;/p&gt;
 
-&lt;p class="has-text-align-none"&gt;On the same day, &lt;a href="https://x.com/Tesla/status/1944049704276283456"&gt;Tesla announced&lt;/a&gt; a new 2025.26 update rolling out “shortly” to its electric cars, which adds the Grok assistant to vehicles equipped with AMD-powered infotainment systems, which &lt;a href="https://www.theverge.com/2021/6/1/22462660/amd-tesla-model-x-s-plaid-ryzen-radeon-rdna-2"&gt;have been available since mid-2021&lt;/a&gt;.  According to Tesla, “Grok is currently in Beta &amp;amp; does not issue commands to your car – existing voice commands remain unchanged.” As &lt;em&gt;&lt;a href="https://electrek.co/2025/07/12/tesla-launches-software-update-with-grok-but-doesnt-interface-car/"&gt;Electrek&lt;/a&gt;&lt;/em&gt; notes, this should mean that whenever the update does reach customer-owned Teslas, it won’t be much different than using the bot as an app on a connected phone.&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;This isn’t the first time the Grok bot has had these kinds of problems or similarly explained them. In February, it blamed a change made by an unnamed ex-OpenAI employee for the bot disregarding sources that accused Elon Musk or Donald Trump of spreading misinformation. Then, in May, it began inserting allegations of white genocide in South Africa into posts about almost any topic. The company &lt;a href="https://www.theverge.com/news/668220/grok-white-genocide-south-africa-xai-unauthorized-modification-employee"&gt;again blamed&lt;/a&gt; an “unauthorized modification,” and said it would start publishing Grok’s system prompts publicly.&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;xAI claims that a change on Monday, July 7th, “triggered an unintended action” that added an older series of instructions to its system prompts telling it to be “maximally based,”  and “not afraid to offend people who are politically correct.” &lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;The prompts are separate from the ones we noted were added to the bot a day earlier, and both sets are different from the ones the company says are currently in operation for the new Grok 4 assistant.&amp;nbsp;&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;These are the prompts specifically cited as connected to the problems:&lt;/p&gt;
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="has-text-align-none"&gt;“You tell it like it is and you are not afraid to offend people who are politically correct.”&lt;/p&gt;
-
-
-
-&lt;p class="has-text-align-none"&gt;* Understand the tone, context and language of the post. Reflect that in your response.”&lt;/p&gt;
-
-
-
-&lt;p class="has-text-align-none"&gt;* “Reply to the post just like a human, keep it engaging, dont repeat the information which is already present in the original post.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p class="has-text-align-none"&gt;The xAI explanation says those lines caused the Grok AI bot to break from other instructions that are supposed to prevent these types of responses, and instead produce “unethical or controversial opinions to engage the user,” as well as “reinforce any previously user-triggered leanings, including any hate speech in the same X thread,” and prioritize sticking to earlier posts from the thread.&lt;/p&gt;
-						
-									</content>
-			
-					</entry>
-			<entry>
-			
-			<author>
-				<name>Peter Nelson</name>
-			</author>
-			
-			<title type="html">Rivian R1S review: second time’s the charm</title>
-			<link rel="alternate" type="text/html" href="https://www.theverge.com/electric-cars/689400/rivian-r1s-review-second-times-the-charm"/>
-			<id>https://www.theverge.com/?p=689400</id>
-			<updated>2025-06-24T14:14:11-04:00</updated>
-			<published>2025-07-12T08:00:00-04:00</published>
-			<category scheme="https://www.theverge.com" term="Cars"/><category scheme="https://www.theverge.com" term="Electric Cars"/><category scheme="https://www.theverge.com" term="Reviews"/><category scheme="https://www.theverge.com" term="Tech"/><category scheme="https://www.theverge.com" term="Transportation"/>
-							<summary type="html">Just four years after Rivian began selling its R1T truck, 2025 marks the beginning of the R1T and R1S' second generation. Considering they look essentially the same on the outside, it might be hard to decipher what warrants a new generation. But underneath, it's actually quite easy: all-new electric architecture, a new motor arrangement, retuned [&amp;#8230;]</summary>
-			
-							<content type="html">
-											
-
-						
-&lt;figure&gt;
-
-&lt;img alt="photo of Rivian R1S" data-caption="" data-portal-copyright="Image: Peter Nelson" data-has-syndication-rights="1" src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/06/2025RivianR1SPeterNelson2.jpg?quality=90&amp;#038;strip=all&amp;#038;crop=0,0,100,100" /&gt;
-	&lt;figcaption&gt;
-		&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p class="has-text-align-none"&gt;Just four years after Rivian began selling its R1T truck, 2025 marks &lt;a href="https://www.theverge.com/2024/6/6/24172761/rivian-r1t-r1s-refresh-update-motor-battery-price"&gt;the beginning of the R1T and R1S' second generation&lt;/a&gt;. Considering they look essentially the same on the outside, it might be hard to decipher what warrants a new generation. But underneath, it's actually quite easy: all-new electric architecture, a new motor arrangement, retuned suspension, and more. Kicking off at $107,700, here's how all these revisions make the 2025 Rivian R1S Premium Tri-Motor a true frontrunner in the modern EV space.&lt;/p&gt;
-&lt;h2 class="wp-block-heading"&gt;Specs&lt;/h2&gt;
-&lt;p class="has-text-align-none"&gt;The tri-motor arrangement fits in between the base dual and top-level quad, and was my tester's powertrain for a whole week. All  …&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.theverge.com/electric-cars/689400/rivian-r1s-review-second-times-the-charm"&gt;Read the full story at The Verge.&lt;/a&gt;&lt;/p&gt;
+&lt;p class="has-text-align-none"&gt;Days after changes to Grok sent it off the rails (&lt;a href="https://x.com/MikeIsaac/status/1942692017324318927"&gt;saying that&lt;/a&gt; if “calling out radicals cheering dead kids makes me ‘literally Hitler,’ then pass the mustache,” and &lt;a href="https://x.com/grok/status/1942663094859358475"&gt;referencing&lt;/a&gt; a “pattern-noticing meme” where “folks with surnames like ‘Steinberg’ (often Jewish) keep popping up in extreme leftist activism, especially the anti-white variety”), the company &lt;a href="https://x.com/grok/status/1943916977481036128"&gt;apologized&lt;/a&gt; for “the horrific behavior that many experienced.” It &lt;a href="https://x.com/grok/status/1943916982694555982"&gt;said&lt;/a&gt; the update responsible for Grok’s tirades was active for 16 hours but had been deprecated. Instructions given to the chatbot, like to not be “afraid to offend people who are politically correct,” had the “undesired” effect of leading it to “ignore its core values in certain circumstances in order to make the response engaging to the user” — even if that meant “producing responses containing unethical or controversial opinions.”&lt;/p&gt;
 						
 									</content>
 			
