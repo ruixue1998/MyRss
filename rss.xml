@@ -3,46 +3,11 @@
 	<title type="text">The Verge</title>
 	<subtitle type="text">The Verge is about technology and how it makes us feel. Founded in 2011, we offer our audience everything from breaking news to reviews to award-winning features and investigations, on our site, in video, and in podcasts.</subtitle>
 
-	<updated>2025-07-14T22:24:39+00:00</updated>
+	<updated>2025-07-15T23:49:02+00:00</updated>
 
 	<link rel="alternate" type="text/html" href="https://www.theverge.com"/>
 	<id>https://www.theverge.com/rss/index.xml</id>
 	<link rel="self" type="application/atom+xml" href="https://www.theverge.com/rss/index.xml"/>
 
 	<icon>https://platform.theverge.com/wp-content/uploads/sites/2/2025/01/verge-rss-large_80b47e.png?w=150&amp;h=150&amp;crop=1</icon>
-		<entry>
-			
-			<author>
-				<name>Lauren Feiner</name>
-			</author>
-			
-			<title type="html">US government announces $200 million Grok contract a week after ‘MechaHitler’ incident</title>
-			<link rel="alternate" type="text/html" href="https://www.theverge.com/news/706855/grok-mechahitler-xai-defense-department-contract"/>
-			<id>https://www.theverge.com/?p=706855</id>
-			<updated>2025-07-14T14:44:46-04:00</updated>
-			<published>2025-07-14T13:58:16-04:00</published>
-			<category scheme="https://www.theverge.com" term="AI"/><category scheme="https://www.theverge.com" term="Elon Musk"/><category scheme="https://www.theverge.com" term="News"/><category scheme="https://www.theverge.com" term="Policy"/><category scheme="https://www.theverge.com" term="Tech"/><category scheme="https://www.theverge.com" term="xAI"/>
-							<summary type="html">A week after Elon Musk’s Grok dubbed itself “MechaHitler” and spewed antisemitic stereotypes, the US government has announced a new contract granting the chatbot’s creator, xAI, up to $200 million to modernize the Defense Department. xAI is one of several leading AI companies to receive the award, alongside Anthropic, Google, and OpenAI. But the timing [&amp;#8230;]</summary>
-			
-							<content type="html">
-											
-
-						
-&lt;figure&gt;
-
-&lt;img alt="" data-caption="" data-portal-copyright="" data-has-syndication-rights="1" src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/05/STK262_GROK_XAI__A.png?quality=90&amp;#038;strip=all&amp;#038;crop=0,0,100,100" /&gt;
-	&lt;figcaption&gt;
-		&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p class="has-text-align-none"&gt;A week after Elon Musk’s Grok dubbed itself “&lt;a href="https://archive.ph/YktYp#selection-639.86-636.2"&gt;MechaHitler&lt;/a&gt;” and &lt;a href="https://www.theverge.com/ai-artificial-intelligence/699788/xai-updated-grok-to-be-more-politically-incorrect"&gt;spewed antisemitic stereotypes&lt;/a&gt;, the US government has &lt;a href="https://www.ai.mil/Latest/News-Press/PR-View/Article/4242822/cdao-announces-partnerships-with-frontier-ai-companies-to-address-national-secu/"&gt;announced a new contract&lt;/a&gt; granting the chatbot’s creator, xAI, up to $200 million to modernize the Defense Department.&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;xAI is one of several leading AI companies to receive the award, alongside Anthropic, Google, and OpenAI. But the timing of the announcement is striking given Grok’s recent high-profile spiral, which drew &lt;a href="https://www.theverge.com/x-ai/705395/congress-has-questions-about-mechahitler"&gt;congressional ire&lt;/a&gt; and public pushback. The use of technology, and especially AI, in the defense space has long been a controversial topic even within the tech industry, and Musk’s prior involvement in slashing federal government contracts through his work at the Department of Government Efficiency (DOGE) still raises &lt;a href="https://www.theverge.com/news/657042/musk-companies-conflict-of-interest-doge-trump-liability"&gt;questions about potential conflicts&lt;/a&gt; — though his relationship with President Donald Trump has &lt;a href="https://www.theverge.com/elon-musk/680817/trump-musk-the-girls-are-fightingggg"&gt;more recently soured&lt;/a&gt;, and Trump’s administration has &lt;a href="https://fortune.com/2025/02/06/elon-musk-conflicts-interest-doge-tesla-spacex/"&gt;claimed&lt;/a&gt; Musk would step back from any potential conflicts while at DOGE.&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;The contract announcement from the Chief Digital and Artificial Intelligence Office (CDAO) is light on details, but says the deals will help the DoD “develop agentic AI workflows across a variety of mission areas.” Alongside the contract award, xAI &lt;a href="https://x.ai/news/government"&gt;announced&lt;/a&gt; “Grok for Government,” which it says will supply “frontier AI products” to the US. In addition to the DoD contract, xAI says other federal agencies will now be able to purchase its tools via the General Services Administration (GSA) schedule. The company plans to work on new products for government customers, like custom models focused on national security, applications for healthcare and science use cases, and models accessible in classified environments.&lt;/p&gt;
-
-&lt;p class="has-text-align-none"&gt;Days after changes to Grok sent it off the rails (&lt;a href="https://x.com/MikeIsaac/status/1942692017324318927"&gt;saying that&lt;/a&gt; if “calling out radicals cheering dead kids makes me ‘literally Hitler,’ then pass the mustache,” and &lt;a href="https://x.com/grok/status/1942663094859358475"&gt;referencing&lt;/a&gt; a “pattern-noticing meme” where “folks with surnames like ‘Steinberg’ (often Jewish) keep popping up in extreme leftist activism, especially the anti-white variety”), the company &lt;a href="https://x.com/grok/status/1943916977481036128"&gt;apologized&lt;/a&gt; for “the horrific behavior that many experienced.” It &lt;a href="https://x.com/grok/status/1943916982694555982"&gt;said&lt;/a&gt; the update responsible for Grok’s tirades was active for 16 hours but had been deprecated. Instructions given to the chatbot, like to not be “afraid to offend people who are politically correct,” had the “undesired” effect of leading it to “ignore its core values in certain circumstances in order to make the response engaging to the user” — even if that meant “producing responses containing unethical or controversial opinions.”&lt;/p&gt;
-						
-									</content>
-			
-					</entry>
-			</feed>
+		</feed>
