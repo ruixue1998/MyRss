@@ -1,0 +1,66 @@
+name: Daily WeChat Article Fetcher
+
+on:
+  schedule:
+    # 每天定时执行一次，时间为 UTC 时间的 0 点 0 分
+    # 对应北京时间是早上 8 点
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  fetch_article:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Fetch latest article
+        id: fetch
+        env:
+          # ↓↓↓ 请在这里替换成你自己的 __biz 值 ↓↓↓
+          BIZ: 'MjM5MjAyNDUyMA==' # 示例 __biz，请务必替换
+        run: |
+          import os
+          import requests
+          import json
+
+          biz = os.environ['BIZ']
+          url = f"https://weread.111965.xyz/api/v1/feeds/articles/{biz}?recent=1"
+
+          try:
+            response = requests.get(url, timeout=60)
+            response.raise_for_status() # 如果请求失败则抛出异常
+            data = response.json()
+
+            if data and 'items' in data and data['items']:
+              latest_article = data['items'][0]
+              title = latest_article.get('title', 'No Title')
+              link = latest_article.get('url', 'No URL')
+              print(f"公众号: {data.get('title', 'Unknown')}")
+              print(f"最新文章标题: {title}")
+              print(f"最新文章链接: {link}")
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  print(f'article_title={title}', file=f)
+                  print(f'article_link={link}', file=f)
+            else:
+              print("未能获取到文章，可能是公众号最近没有更新，或者返回数据格式有误。")
+
+          except requests.exceptions.RequestException as e:
+            print(f"请求失败: {e}")
+            exit(1)
+          except json.JSONDecodeError:
+            print("解析返回内容失败，可能不是有效的 JSON 格式。")
+            print(f"返回内容: {response.text}")
+            exit(1)
+
+      - name: Print fetched article info
+        run: |
+          echo "获取到的文章标题是: ${{ steps.fetch.outputs.article_title }}"
+          echo "获取到的文章链接是: ${{ steps.fetch.outputs.article_link }}"
